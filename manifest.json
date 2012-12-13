@@ -1,0 +1,19 @@
+{
+  "name": "Placed",
+  "version": "0.1",
+  "manifest_version": 2,
+  "description": "Craigslist house hunting less painful.",
+  "content_scripts": [{
+      "matches": ["https://mail.google.com/*"],
+      "js": ["jquery.js", "gmail.js"]
+  }, {
+      "matches": ["http://*.craigslist.org/*"],
+      "js": ["jquery.js", "craigslist.js"]
+  }],
+  "background": {
+      "scripts": ["background.js"]
+  },
+  "permissions": [
+      "storage"
+  ]
+}
