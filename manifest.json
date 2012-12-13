@@ -6,11 +6,11 @@
   "options_page": "options.html",
   "content_scripts": [{
       "matches": ["https://mail.google.com/*"],
-      "js": ["jquery.js", "gmail.js"],
+      "js": ["underscore-min.js", "jquery.js", "gmail.js"],
       "css": ["gmail.css"]
   }, {
       "matches": ["http://*.craigslist.org/*"],
-      "js": ["jquery.js", "craigslist.js"]
+      "js": ["underscore-min.js", "jquery.js", "craigslist.js"]
   }],
   "background": {
       "scripts": ["background.js"]
