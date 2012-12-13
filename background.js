@@ -16,20 +16,19 @@ chrome.extension.onMessage.addListener(
           var s = {};
           s[id] = req.data;
           storage.set(s, function() {
-              storage.get(id, function(resp) {
-                  console.log("truly set", resp);
-              });
+              storage.get(id);
           });
-          sendResponse('awhyuea');
+
+          storage.get("template", function(r) {
+              sendResponse(r);
+          });
+
       } else if (req.page === "message") {
 
           storage.get("" + req.id, function(resp) {
-              console.log(resp[req.id]);
               sendResponse(resp[req.id]);
           });
       }
 
-
-      console.log("from background");
       return true;
   });

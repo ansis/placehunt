@@ -1,24 +1,21 @@
 {
-  "name": "Placed",
+  "name": "placehunt",
   "version": "0.1",
   "manifest_version": 2,
-  "description": "Craigslist house hunting less painful.",
+  "description": "Craigslist house hunting slightly less painful.",
   "options_page": "options.html",
   "content_scripts": [{
       "matches": ["https://mail.google.com/*"],
-      "js": ["underscore-min.js", "jquery.js", "gmail.js"],
+      "js": ["jquery.js", "gmail.js"],
       "css": ["gmail.css"]
   }, {
       "matches": ["http://*.craigslist.org/*"],
-      "js": ["underscore-min.js", "jquery.js", "craigslist.js"]
+      "js": ["jquery.js", "craigslist.js"]
   }],
   "background": {
       "scripts": ["background.js"]
   },
   "permissions": [
       "storage"
-  ],
-  "web_accessible_resources": [
-      "map.png"
-      ]
+  ]
 }

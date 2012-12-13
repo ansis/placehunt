@@ -1,9 +1,12 @@
 var posting = {
     email: $('#replytext').next().children().text(),
     posting_title: $('#postingtitle').text(),
-    body: $('#userbody').text(),
     id: parseInt($('.postingidtext').text().replace('PostingID:', ''), 10),
-    google_map: $('#userbody small').children().first().attr('href')
+    google_map: $('#userbody small').children().first().attr('href'),
+    images: $("#iwt").find('a').map(function(){return this.href}).toArray(),
+    url: window.location.href,
+    lat: $("#leaflet").data('latitude'),
+    lon: $("#leaflet").data('longitude')
 };
 
 var msg = {
@@ -12,6 +15,8 @@ var msg = {
 };
 
 chrome.extension.sendMessage(msg, function(response) {
-    console.log("sending", msg);
-    console.log(response);
+    if (response.template) {
+        var maillink = $('#replytext').next().children().first();
+        maillink.attr('href', maillink.attr('href').replace('&body=', '&body='+encodeURIComponent(response.template)));
+    }
 });
